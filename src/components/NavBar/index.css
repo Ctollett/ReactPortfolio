@@ -1,0 +1,355 @@
+/* NavBar.css */
+
+@font-face {
+  font-family: 'Tephra';
+  src: url('../../assets/fonts/Tephra50_Trial_Rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tephra bold';
+  src: url('../../assets/fonts/Tephra0_Trial_Rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PPSupply';
+  src: url('../../assets/fonts/PPSupplyMono-Ultralight.otf') format('opentype');
+}
+
+
+:root {
+  --background-color-light: #ebebeb;
+  --text-color-light: black;
+  --background-color-dark: black;
+  --text-color-dark: #ebebeb;
+  --border-bottom-dark: #ebebeb;
+  --border-bottom-light: black;
+}
+
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+  
+
+ body.light-mode .navbar {
+  border-bottom: 1px solid var(--border-bottom-light);
+}
+
+.navbar {
+  border-bottom: 1px solid black;
+}
+
+body.dark-mode .navbar {
+  border-bottom: 1px solid var(--border-bottom-dark);
+}
+
+body.light-mode .nav-item {
+  border-left: 1px solid var(--border-bottom-light);
+}
+
+.nav-item {
+  border-left: 1px solid black;
+}
+
+body.dark-mode .nav-item {
+  border-left: 1px solid var(--border-bottom-dark);
+}
+
+
+.logo.light-mode {
+  color: black; 
+}
+
+.logo.dark-mode {
+  color: white;   
+}
+
+#sun {
+  width: 32px;
+}
+
+#moon {
+  width: 35px;
+}
+
+
+.body.nav-item.dark-mode {
+  border-bottom: 1px solid white;
+}
+ 
+.body.nav-item.light-mode {
+  border-bottom: 1px solid black;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  margin-left: 30px;
+  height: 25px;
+}
+
+.toggle-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #FA4C14;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.icon {
+  display: none;
+  position: absolute;
+  color: white;
+  font-size: 14px;
+}
+
+input:checked + .slider .light-mode-icon {
+  display: block;
+  top: 0px;
+  left: 4px; 
+}
+
+input:not(:checked) + .slider .dark-mode-icon {
+  display: block;
+  top: 0px;
+  right: 4px; 
+}
+
+
+
+.navbar {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  width: 95%;
+  top: 0;
+  height: 6.5em;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+}
+
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 4em;
+  padding-bottom: 5em;
+
+}
+
+.logo {
+  position: relative;
+  font-size: 40px; 
+  font-family: 'Tephra';
+  text-decoration: none;
+  padding: 0.5rem 0rem; 
+
+}
+
+.reg-mark {
+  font-size: 0.3em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  margin-left: 4px;
+  position: absolute;
+}
+
+
+
+.navbar-nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; 
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.5rem; 
+  font-family: 'PPSupply';
+  font-size: 1em;
+  height: 6.5em;
+  cursor: pointer;
+}
+
+.nav-link {
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  font-size: 25px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #FA4C14;
+}
+
+.nav-link.active {
+  color: #FA4C14; 
+}
+
+
+
+.title-container {
+  font-family: 'PPSupply';
+  color: grey;
+  font-size: 10px;
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+
+
+.menu-toggle {
+  display: none;
+  /* Add styles for your toggle button (e.g., hamburger icon) */
+  /* Ensure it is easily clickable */
+  cursor: pointer;
+  position: fixed;
+  z-index: 102; /* Higher than the overlay to ensure it's clickable */
+}
+
+.navbar-nav {
+  display: flex; /* For horizontal layout on desktop */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 20px; /* Space between items */
+}
+
+.navbar-nav .nav-item .nav-link {
+  text-decoration: none;
+  display: flex;
+}
+
+.menu-toggle.open {
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 2%;
+  margin-top: 1%;
+  font-family: 'PPSupply';
+
+
+}
+
+/* Mobile view */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block; 
+    top: 10px;
+    right: 10px;
+    text-decoration: none;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-family: 'PPSupply';
+    padding: 2%;
+    margin-top: 1%;
+    z-index: 200;
+
+  }
+
+  .navbar-nav {
+    display: none;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    height: 100vh;  
+    background-color: rgba(0, 0, 0, 1); 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 151; 
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    text-decoration: none;
+    color: white; 
+    display: flex;
+  }
+
+  .navbar-nav ul{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-nav.open {
+    display: flex; 
+  }
+
+  .navbar button {
+    margin-right: 2%;
+  }
+
+  .nav-item {
+    width: 100%; 
+    text-align: center; 
+    margin-bottom: 10px; 
+
+  }
+
+  .nav-link {
+    color: white; 
+    font-size: 34px; 
+    cursor: pointer;
+
+  }
+}
+
+
+
+
+
+
+
+

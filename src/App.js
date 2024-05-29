@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from 'react';
+import { ThemeProvider } from './Context/ThemeContext.js';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/home/home.js'; 
+import Navbar from './components/NavBar/Navbar.js';
+import CaseStudy from './components/CaseStudy/index.js';
+import useActiveSection from './hooks/useActiveSection.js';
+import { ScrollTriggerProvider } from './Context/ScrollTriggerContext.js';
+
+
+
 
 function App() {
+  const homeRef = useRef(null); 
+  const aboutRef =useRef(null);
+  const workRef = useRef(null);
+  const contactRef = useRef(null);
+  const activeSection = useActiveSection(['home', 'about', 'work', 'contact']);
+
+  const handleScrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <div className="App">
+        <ThemeProvider>
+        <ScrollTriggerProvider>
+        <Navbar onMenuSelect={handleScrollToSection} aboutRef={aboutRef} workRef={workRef} homeRef={homeRef} contactRef={contactRef} activeSection={activeSection} />
+        <Routes>
+          <Route path="/" element={<Home homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} contactRef={contactRef} />} />
+          <Route path="/work/:id" element={<CaseStudy />} />
+        </Routes>
+        </ScrollTriggerProvider>
+        </ThemeProvider>
+      </div>
   );
 }
 
 export default App;
+
+
+    
+  

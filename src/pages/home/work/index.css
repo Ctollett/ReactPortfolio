@@ -1,0 +1,373 @@
+
+@font-face {
+    font-family: 'PPSupply-light';
+    src: url('../../../assets/fonts/PPSupplySans-Regular.otf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'NeueHaas';
+    src: url('../../../assets/fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+  }
+
+.work-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    height: 100vh;
+    padding-bottom: 30em;
+    background-color: #ebebeb;
+    z-index: 999;
+
+  }
+    
+  .project-row {  
+    display: flex;
+    align-items: center;    
+    padding: 20px 0;  
+    cursor: pointer;  
+}
+  
+body.light-mode .project-row {
+  border-top: 1px solid black;
+}
+
+body.dark-mode .project-row {
+  border-top: 1px solid white;
+}
+
+.project-row {
+  border-top: 1px solid black;
+  z-index: 999;
+}
+
+.project-name-row {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 300px;
+  flex-direction: row;
+
+}
+
+.project-detail {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+}
+
+ .project-link-section {
+    flex-grow: 1;
+}
+  
+.project-preview-image {
+  height: 200px;
+  width: 0; 
+  margin-right: 0px;
+  overflow: hidden; 
+  visibility: hidden; 
+  opacity: 0; 
+  transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.project-row:hover .project-preview-image {
+  width: 400px; 
+  margin-right: 50px;
+  visibility: visible; 
+  opacity: 1; 
+}
+
+.project-detail {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  transition: margin 0.5s ease; 
+}
+
+.project-row:hover .project-detail {
+  margin-right: 100px;
+}
+
+  .project-row:last-child {
+    border-bottom: 1px solid black;
+  }
+
+  .project-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+
+  .project-title span{
+    font-family: 'NeueHaas';
+
+  }
+  
+  .project-number {
+    font-family: 'PPSupply';
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 60px;
+  }
+  
+  .project-name {
+    flex-grow: 1;
+    font-size: 60px;
+    font-family: 'Neue-Haas';
+  }
+  
+  .project-description {
+    font-family: 'PPSupply';
+    flex-grow: 2;
+  }
+  
+  .project-link {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary blue, change as needed */
+    font-weight: bold;
+  }
+
+  .project-image {
+    position: fixed;
+    height: 500px;
+    width: 500px;
+    display: none;
+    transition: left 0.1s, top 0.1s; /* Smooth transition for position */
+  }
+
+
+  .project-link-section {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    row-gap: 70px;
+  }
+
+  .work-title {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    width: 200px; 
+    height: 70px;
+  }
+
+  .work-title h4{
+    font-family: 'PPSupply';
+    font-size: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+  
+ 
+  .project-year {
+    font-family: 'PPSupply';
+  }
+
+
+  /* Existing styles... */
+
+@media (max-width: 768px) {
+
+  .work-menu {
+    padding: 30px; /* Reduce padding for smaller screens */
+    height: auto; /* Adjust height */
+  }
+
+  .project-row {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .project-title,
+  .project-link-section {
+    width: 100%; /* Full width for smaller screens */
+    align-items: flex-start; /* Align to the start */
+  }
+
+  .project-name {
+    font-size: 30px; /* Smaller font size for project name */
+  }
+
+  .project-number {
+    font-size: 15px; /* Adjust the font size */
+    margin-right: 30px; /* Adjust margin */
+  }
+
+  .project-link-section {
+    row-gap: 20px; /* Reduce gap */
+  }
+
+  .project-preview-image{
+    display: none !important; 
+  }
+
+  .work-title {
+    font-family: 'PPSupply';
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    /* Set explicit dimensions to ensure enough space for text and borders */
+    width: 125px; /* Adjust based on the size of your text */
+    height: 50px; /* Adjust based on the size of your text */
+}
+
+/* Adjust the corner-wrapper to cover the whole .work-title area */
+.corner-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Styles for corner elements */
+/* Adjust the h4 element if necessary */
+.work-title h4 {
+  font-size: 12px;
+   margin-right: 12px;
+   margin-bottom: 20px;
+}
+  
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .work-menu {
+    padding: 30px; /* Reduce padding for smaller screens */
+    height: 70vh; /* Adjust height */
+  }
+
+  .project-row {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .project-title,
+  .project-link-section {
+    width: 100%; /* Full width for smaller screens */
+    align-items: flex-start; /* Align to the start */
+  }
+
+  .project-name {
+    font-size: 30px; /* Smaller font size for project name */
+  }
+
+  .project-number {
+    font-size: 15px; /* Adjust the font size */
+    margin-right: 30px; /* Adjust margin */
+  }
+
+  .project-link-section {
+    row-gap: 20px; /* Reduce gap */
+  }
+
+  .project-preview-image{
+    display: none !important; 
+  }
+
+  .work-title {
+    font-family: 'PPSupply';
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin-bottom: 3%;
+    /* Set explicit dimensions to ensure enough space for text and borders */
+    width: 125px; /* Adjust based on the size of your text */
+    height: 50px; /* Adjust based on the size of your text */
+}
+
+/* Adjust the corner-wrapper to cover the whole .work-title area */
+.corner-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Styles for corner elements */
+
+
+/* Adjust the h4 element if necessary */
+.work-title h4 {
+  font-size: 12px;
+   margin-right: 12px;
+   margin-bottom: 20px;
+}
+  
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+  .work-menu {
+    padding: 30px; /* Reduce padding for smaller screens */
+    height: 180vh; /* Adjust height */
+    margin-bottom: 13em;
+  }
+
+  .project-row {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  .project-title,
+  .project-link-section {
+    width: 100%; /* Full width for smaller screens */
+    align-items: flex-start; /* Align to the start */
+  }
+
+
+  .project-name {
+    font-size: 30px; /* Smaller font size for project name */
+  }
+
+  .project-number {
+    font-size: 15px; /* Adjust the font size */
+    margin-right: 30px; /* Adjust margin */
+  }
+
+  .project-link-section {
+    row-gap: 20px; /* Reduce gap */
+  }
+
+  .project-preview-image{
+    display: none !important; 
+  }
+
+  .work-title {
+    font-family: 'PPSupply';
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3%;
+    /* Set explicit dimensions to ensure enough space for text and borders */
+    width: 125px; /* Adjust based on the size of your text */
+    height: 50px; /* Adjust based on the size of your text */
+}
+
+/* Adjust the corner-wrapper to cover the whole .work-title area */
+.corner-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Styles for corner elements */
+
+
+/* Adjust the h4 element if necessary */
+.work-title h4 {
+  font-size: 12px;
+   margin-right: 20px;
+   margin-bottom: 30px;
+}
+}

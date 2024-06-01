@@ -10,10 +10,14 @@
   }
 
 
+
+
+  
+
   .scroll-container {
    position: relative;
    width: 100%;
-   margin-bottom: 200vh; 
+   height: 100vh;
    display: flex;
    margin-left: 5em;
    flex-direction: column; 
@@ -25,7 +29,7 @@
 .scroll-items {
    width: 80%; 
    margin: auto; 
-}
+}   
 
 .scroll-content {
    display: flex;
@@ -34,15 +38,15 @@
    width: 100%; 
 }
 
-section {
 
+section {
    padding: 20px;
 }
 
 section h3 {
-   font-size: 24px; /* Larger text for headers */
-   margin-bottom: 10px; /* Space between the header and list items */
-   color: #333; /* Dark grey color for text */
+   font-size: 24px;
+   margin-bottom: 10px; 
+   color: #333; 
    font-family: 'NeueHaas', sans-serif; /* Font family as defined */
 }
 

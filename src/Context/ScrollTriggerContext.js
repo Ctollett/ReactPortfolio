@@ -12,13 +12,15 @@ export const ScrollTriggerProvider = ({ children }) => {
     const registerTrigger = useCallback((triggerConfig) => {
         const trigger = ScrollTrigger.create(triggerConfig);
         setTriggers(prev => [...prev, trigger]);
-        return trigger;
-    }, []);
+        return trigger; 
+    }, []);  
 
     const unregisterTrigger = useCallback((trigger) => {
-        trigger.kill();
-        setTriggers(prev => prev.filter(t => t !== trigger));
-    }, []);  
+        if (trigger) {
+            trigger.kill();
+            setTriggers(prev => prev.filter(t => t !== trigger));
+        }
+    }, []);
 
     const clearAll = useCallback(() => {
         triggers.forEach(trigger => trigger.kill());
@@ -37,4 +39,5 @@ export const ScrollTriggerProvider = ({ children }) => {
 };
 
 export const useScrollTrigger = () => useContext(ScrollTriggerContext);
+
 

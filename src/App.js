@@ -5,6 +5,7 @@ import Home from './pages/home/home.js';
 import Navbar from './components/NavBar/Navbar.js';
 import CaseStudy from './components/CaseStudy/index.js';
 import useActiveSection from './hooks/useActiveSection.js';
+import DevPlayground from './components/devplayground.js';
 import { ScrollTriggerProvider } from './Context/ScrollTriggerContext.js';
 
 
@@ -29,6 +30,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home homeRef={homeRef} aboutRef={aboutRef} workRef={workRef} contactRef={contactRef} />} />
           <Route path="/work/:id" element={<CaseStudy />} />
+          <Route path="/dev" element={<DevPlayground />} />  {/* Development playground route */}
         </Routes>
         </ScrollTriggerProvider>
         </ThemeProvider>

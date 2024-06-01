@@ -17,12 +17,12 @@
 
 
 :root {
-  --background-color-light: #ebebeb;
-  --text-color-light: black;
-  --background-color-dark: black;
-  --text-color-dark: #ebebeb;
-  --border-bottom-dark: #ebebeb;
-  --border-bottom-light: black;
+  --background-color-light: #d3d0cc;
+  --text-color-light: #363434;
+  --background-color-dark: #1a1818;
+  --text-color-dark: #d3d0cc;
+  --border-bottom-dark: #d3d0cc;
+  --border-bottom-light: #1a1818;
 }
 
 body.light-mode {
@@ -89,9 +89,16 @@ body.dark-mode .nav-item {
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 45px;
   margin-left: 30px;
-  height: 25px;
+  height: 24px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .toggle-switch input { 
@@ -129,7 +136,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(20px);
 }
 
 .icon {
@@ -154,26 +161,15 @@ input:not(:checked) + .slider .dark-mode-icon {
 
 
 .navbar {
-  position: fixed;
   display: flex;
+  position: sticky;
   justify-content: space-between;
-  align-items: center;  
-  width: 95%;
+  align-items: center; 
+  width: 96%;
+  margin-left: 2%; 
   top: 0;
-  height: 6.5em;
   z-index: 2000;
   backdrop-filter: blur(10px);
-}
-
-
-.nav-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 4em;
-  padding-bottom: 5em;
-
 }
 
 .logo {
@@ -247,22 +243,20 @@ input:not(:checked) + .slider .dark-mode-icon {
 
 .menu-toggle {
   display: none;
-  /* Add styles for your toggle button (e.g., hamburger icon) */
-  /* Ensure it is easily clickable */
   cursor: pointer;
   position: fixed;
-  z-index: 102; /* Higher than the overlay to ensure it's clickable */
+  z-index: 102; 
 }
 
 .navbar-nav {
-  display: flex; /* For horizontal layout on desktop */
+  display: flex; 
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navbar-nav .nav-item {
-  margin-right: 20px; /* Space between items */
+  margin-right: 20px; 
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -282,69 +276,74 @@ input:not(:checked) + .slider .dark-mode-icon {
 
 }
 
-/* Mobile view */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .menu-toggle {
-    display: block; 
-    top: 10px;
-    right: 10px;
-    text-decoration: none;
-    background-color: transparent;
-    border: 1px solid black;
-    border-radius: 5px;
+    background-color: transparent; 
     font-family: 'PPSupply';
-    padding: 2%;
-    margin-top: 1%;
-    z-index: 200;
-
+    color: black;  
+    border: 1px solid black;  
+    padding: 8px 16px;  
+    cursor: pointer;
+    display: inline-block;  
+    font-size: 16px;  
+    position: relative; 
+    z-index: 200;  
   }
+
+  body.dark-mode .menu-toggle {
+    background-color: transparent; 
+    font-family: 'PPSupply';
+    color: white;  
+    border: 1px solid white;  
+    padding: 8px 16px;  
+    cursor: pointer;
+    display: inline-block;  
+    font-size: 16px;  
+    position: relative; 
+    z-index: 200;  
+  }
+    
 
   .navbar-nav {
     display: none;
-    position: fixed; 
+    position: fixed;  
     top: 0;
-    left: 0;
-    height: 100vh;  
-    background-color: rgba(0, 0, 0, 1); 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    z-index: 151; 
-  }
-
-  .navbar-nav .nav-item .nav-link {
-    text-decoration: none;
-    color: white; 
-    display: flex;
-  }
-
-  .navbar-nav ul{
-    display: flex;
+    left: 0;   
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9); 
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 151;
   }
+
+  .navbar {
+
+    height: 100px;
+    z-index: 2000; 
+  }
+
+  
 
   .navbar-nav.open {
     display: flex; 
-  }
-
-  .navbar button {
-    margin-right: 2%;
+    flex-direction: column;
   }
 
   .nav-item {
-    width: 100%; 
-    text-align: center; 
-    margin-bottom: 10px; 
-
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
   }
 
   .nav-link {
-    color: white; 
-    font-size: 34px; 
+    color: white;
+    font-size: 34px;
     cursor: pointer;
-
   }
 }
+
 
 
 

@@ -50,16 +50,22 @@ const CaseStudy = () => {
     <h1>{project.title}</h1>
   </div>
       <div className='image-section'>
-         <img src={mountain}></img>
+         <img src={project.headerImage}></img>
       </div>
       <div className='desc-section'>
         <div className='desc-entries'>
-        <p id='siteLink'>View Site</p>
+        <p id='siteLink' className='siteLink'> {project.siteUrl ? (
+            <a href={project.siteUrl} target="_blank" rel="noopener noreferrer">
+              {project.site}
+            </a>
+          ) : (
+            project.site
+          )}</p>
         <div className='desc-entry'>
-            <p>Year<div id='line'></div><br></br>2023</p>
+            <p>Year<div id='line'></div><br></br>{project.date}</p>
         </div>
         <div className='desc-entry'>
-            <p>Role <div id='line'></div><br></br>Developer</p>
+            <p>Role <div id='line'></div><br></br>{project.role}</p>
         </div>
         <div className='desc-entry'>
     <p>Tech <div id='line'></div><br></br>

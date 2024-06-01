@@ -3,8 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import './index.css';
 import useGlitchEffect from '../../hooks/useTextGlitch';
 import { useTheme } from '../../Context/ThemeContext'; 
-import moon from '../../assets/svgs/moon.svg'
-import sun from '../../assets/svgs/sun.svg'
+
 
 const Navbar = ({ onMenuSelect, aboutRef, workRef, homeRef, contactRef, activeSection}) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,6 +28,7 @@ const Navbar = ({ onMenuSelect, aboutRef, workRef, homeRef, contactRef, activeSe
     if (location.pathname !== path) { 
       navigate(path);
     }
+
     if (location.pathname !== '/') {
       navigate('/');
       setTimeout(() => {
@@ -44,15 +44,18 @@ const Navbar = ({ onMenuSelect, aboutRef, workRef, homeRef, contactRef, activeSe
 
  
   return (
-    <div className="nav-container">
+
       <nav className="navbar">
-        <div className="logo">CT<span className="reg-mark">&reg;</span>
-        <label class="toggle-switch">
-    <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
-        <span class="slider round">
-    </span>
-      </label>
-      </div>
+        <div className='logo-container'>
+          <div className="logo">CT<span className="reg-mark">&reg;</span>
+          </div>
+        <div className="themeButton">
+          <label class="toggle-switch">
+            <input type="checkbox" checked={isDarkMode} onChange={toggleTheme} />
+          <span class="slider round"></span>
+        </label>
+          </div>
+        </div>
         <button onClick={toggleMenu} className={`menu-toggle ${isOpen ? 'open' : ''}`}>
           {isOpen ? 'Close' : 'Menu'}
         </button>
@@ -111,7 +114,6 @@ const Navbar = ({ onMenuSelect, aboutRef, workRef, homeRef, contactRef, activeSe
           </ul>
         </div>
       </nav>
-    </div>
   );
 };
 

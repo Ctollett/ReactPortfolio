@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@gsap/react": "^2.1.1",
     "@pixi/filter-pixelate": "^5.1.1",
     "@react-three/drei": "^9.105.6",
     "@react-three/fiber": "^8.16.6",

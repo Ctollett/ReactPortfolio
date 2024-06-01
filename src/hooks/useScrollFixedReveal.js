@@ -1,74 +1,79 @@
 import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useLocation } from 'react-router-dom';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const useScrollFixedReveal = () => {
-    const contentRef = useRef(null);
-    const graphicRef = useRef(null);
-    const titleRef = useRef(null);
+const useScrollFixedReveal = ({ containerRef, languageRef }) => {
+    useGSAP(() => {
+         let resizeTimeout; 
+        const setupTriggers = () => {
 
-    useEffect(() => {
-        // Setup for graphicRef
-        if (graphicRef.current) {
-            ScrollTrigger.create({
-                trigger: graphicRef.current,
-                start: "top -15%", // Customized as needed
-                end: "bottom+=120% top",
-                pin: true,
-                pinSpacing: false,
-                scrub: true,
-         
-            });
-        }
-
-        // Setup for titleRef
-        if (titleRef.current) {
-            ScrollTrigger.create({
-                trigger: titleRef.current,
-                start: "top 10%",
-                end: "+=300%",
-                pin: true,
-                pinSpacing: false,
-                scrub: true,
-    
-            });
-        }
-
-        // Setup for contentRef
-        if (contentRef.current) {
-            ScrollTrigger.create({
-                trigger: contentRef.current,
-                start: "top 60%",
-                end: "+=200%",
-                pin: true,
-                scrub: true
-            });
-
-            gsap.fromTo(contentRef.current.querySelectorAll('section li'), {
-                autoAlpha: 0,
-                y: 50
-            }, {
-                autoAlpha: 1,
-                y: 0,
-                duration: 2, 
-                stagger: 1,
-                scrollTrigger: {
-                    trigger: contentRef.current,  
-                    start: "top 70%",
-                    end: "+=200%",  
-                    scrub: true
+           
+            if (containerRef.current) {
+                const existingTrigger = ScrollTrigger.getById('containerTrigger');
+                if (!existingTrigger) {
+                    ScrollTrigger.create({
+                        id: 'containerTrigger',
+                        trigger: containerRef.current,
+                        start: "top top",
+                        end: `+=${window.innerHeight * 2}`,
+                        pin: true,
+                 
+                        scrub: true,
+                    });
+                } else {
+                    existingTrigger.refresh();
                 }
-            });
+            }
+
+     
+            if (languageRef.current) {
+                gsap.utils.toArray(languageRef.current.children).forEach((child, index) => {
+                    gsap.fromTo(child, {
+                        autoAlpha: 0,
+                        y: 50
+                    }, {
+                        autoAlpha: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: child,  
+                            start: "top bottom",
+                            toggleActions: "play none none reverse",
+               
+                            scrub: true
+                        }  
+                    });
+                });
+            }
+        };
+
+        setupTriggers();
+
+        const resizeObserver = new ResizeObserver(entries => {
+            clearTimeout(resizeTimeout);
+            console.log("resize")
+            resizeTimeout = setTimeout(() => {
+                setupTriggers();
+                ScrollTrigger.refresh(true);
+            }, 300);
+        });
+
+        if (containerRef.current) {
+            resizeObserver.observe(containerRef.current);
         }
+  
+        return () => {
+            resizeObserver.disconnect();
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            clearTimeout(resizeTimeout);
+        };
+    }, [containerRef, languageRef]);
 
-        // Cleanup
-        return () => ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    }, []);
-
-    return { contentRef, graphicRef, titleRef };
+    return null;
 };
 
 export default useScrollFixedReveal;

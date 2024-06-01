@@ -7,27 +7,37 @@ const useActiveSection = (sectionIds) => {
   const [activeSection, setActiveSection] = useState(location.hash);
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-          const newActiveSection = `#${entry.target.id}`;
-          setActiveSection(newActiveSection);
-          if (location.hash !== newActiveSection) {  
-            navigate(newActiveSection, { replace: true });
+    // Check the screen size before initializing the IntersectionObserver
+    if (window.innerWidth > 768) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.25) {
+            const newActiveSection = `#${entry.target.id}`;
+            setActiveSection(newActiveSection);
+            if (location.hash !== newActiveSection) {
+              navigate(newActiveSection, { replace: true });
+            }
           }
-        }
+        });
+      }, { threshold: 0.25 });
+  
+      // Observe all the sections
+      sectionIds.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
       });
-    }, { threshold: 0.5 });
 
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) observer.unobserve(el);
-    });
+      // Cleanup function to unobserve all the sections
+      return () => {
+        sectionIds.forEach(id => {
+          const el = document.getElementById(id);
+          if (el) observer.unobserve(el);
+        });
+        observer.disconnect();
+      };
+    }
+    // If not greater than 768 pixels, we do nothing, effectively disabling the observer for mobile.
+    return () => {};
   }, [sectionIds, navigate, location.hash]);
 
   return activeSection.replace('#', '');

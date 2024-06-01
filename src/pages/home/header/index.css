@@ -27,8 +27,7 @@
 }
 
 body {
-  background-color: #ebebeb;
-  overflow-x: hidden;
+  background-color: #d8d4d2;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -38,7 +37,6 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 100vh;
-  overflow: hidden;
   width: 100vw;
 }
   
@@ -82,6 +80,8 @@ header {
   }
   
   .description {
+    margin-top: 1%;
+    height: 65%;
     position: relative;
     width: 20%;
   }
@@ -92,6 +92,14 @@ header {
   }
 
   body.dark-mode #globe {
+    filter: invert(100%);
+  }
+
+  body.dark-mode .barcode {
+    filter: invert(100%);
+  }
+
+  body.dark-mode .barcode-text {
     filter: invert(100%);
   }
 
@@ -176,13 +184,6 @@ header {
   
   }
 
-
-  .overlay-element {
-
-    position: absolute;
-    color: #ebebeb;
-  }
-
   
   .nameInfo {
     text-align: left;
@@ -199,7 +200,7 @@ header {
 
   .description {
     position: relative;
-    padding: 20px;
+    padding: 18px;
 
 }
 

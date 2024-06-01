@@ -64,7 +64,7 @@ const LowPolyGlobe = () => {
             window.removeEventListener('mousemove', onMouseMove);
             renderer.dispose();
             scene.remove(globe);
-            mountRef.current.removeChild(renderer.domElement);
+      
         };
     }, []);
 

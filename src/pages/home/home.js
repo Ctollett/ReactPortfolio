@@ -15,8 +15,10 @@ const Home = ({homeRef, aboutRef, workRef, contactRef}) => {
       <Header />
       </div>
       <div ref={aboutRef} id='about'>
-        <AboutMe/>
+      <AboutMe />
+      <div id='skills'>
       <Skills />
+      </div>
     </div>
       <div ref={workRef} id="work">
         <Work/>

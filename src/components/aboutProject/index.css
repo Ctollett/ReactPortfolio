@@ -1,0 +1,198 @@
+
+@font-face {
+    font-family: 'PPSupply-light';
+    src: url('../../assets/fonts/PPSupplyMono-Regular.otf') format('truetype');
+  }
+
+
+.overview-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin: 1em 0;
+    padding: 3%;
+    width: 100%;
+}
+
+.about-section {
+    width: 30%;
+    font-family: 'PPSupply';
+}
+
+.overview-section h2 {
+    
+    margin-bottom: 0.5em;
+}
+
+.overview-section p {
+    line-height: 1.6;
+    font-size: 12px;
+    text-align: justify;
+}
+
+.headline-section {
+    display: flex;
+    text-align: right;
+    width: 60%;
+
+}
+
+.headline-section h1{
+    font-family: 'NeueHaas';
+    width: 100%;
+}
+.header-box {
+    position: relative;
+    padding: 40px; 
+    box-sizing: border-box; 
+
+}
+
+/* Corner styles */
+.corner-wrapper {
+    position: absolute;
+    top: -10px; /* Offset for padding */
+    left: -10px; /* Offset for padding */
+    right: -10px; /* Offset for padding */
+    bottom: -10px; /* Offset for padding */
+}
+
+.corner-wrapper::before,
+.corner-wrapper::after,
+.corner-wrapper .corner-inner::before,
+.corner-wrapper .corner-inner::after {
+    content: '';
+    position: absolute;
+    width: 20px; /* Adjust the size of the corner */
+    height: 20px; /* Adjust the size of the corner */
+    border: 1px solid black; /* Adjust the border style as needed */
+}
+
+/* Top left corner */
+.corner-wrapper::before {
+    top: 0;
+    left: 0;
+    border-bottom: none;
+    border-right: none;
+}
+
+/* Top right corner */
+.corner-wrapper::after {
+    top: 0;
+    right: 0;
+    border-bottom: none;
+    border-left: none;
+}
+
+/* Bottom left corner */
+.corner-wrapper .corner-inner::before {
+    bottom: 0;
+    left: 0;
+    border-top: none;
+    border-right: none;
+}
+
+/* Bottom right corner */
+.corner-wrapper .corner-inner::after {
+    bottom: 0;
+    right: 0;
+    border-top: none;
+    border-left: none;
+}
+
+@media (max-width: 768px) {
+    .overview-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5%;
+    }
+
+    .about-section, .headline-section {
+        width: 100%; /* Full width on smaller screens */
+        text-align: left; /* Center the text */
+        margin-bottom: 20px; /* Add some space between sections */
+    }
+
+    .overview-section h2, .headline-section h1 {
+        font-size: 18px; /* Adjust font size for readability */
+    }
+
+    .overview-section p {
+        font-size: 11px; /* Slightly larger font for readability */
+        padding: 0 5%; /* Padding for text to not touch the edges */
+    }
+
+    .header-box {
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    /* Adjust corner styles for smaller box */
+    .corner-wrapper {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+
+    .corner-wrapper::before,
+    .corner-wrapper::after,
+    .corner-wrapper .corner-inner::before,
+    .corner-wrapper .corner-inner::after {
+        width: 15px; /* Smaller corners */
+        height: 15px;
+    }
+
+    /* Additional responsive adjustments as needed */
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    .overview-section {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 5%;
+    }
+
+    .about-section, .headline-section {
+        width: 100%; /* Full width on smaller screens */
+        text-align: left; /* Center the text */
+        margin-bottom: 20px; /* Add some space between sections */
+    }
+
+    .overview-section h2, .headline-section h1 {
+        font-size: 18px; /* Adjust font size for readability */
+    }
+
+    .overview-section p {
+        font-size: 11px; /* Slightly larger font for readability */
+        padding: 0 5%; /* Padding for text to not touch the edges */
+    }
+
+    .header-box {
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    /* Adjust corner styles for smaller box */
+    .corner-wrapper {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+
+    .corner-wrapper::before,
+    .corner-wrapper::after,
+    .corner-wrapper .corner-inner::before,
+    .corner-wrapper .corner-inner::after {
+        width: 15px; /* Smaller corners */
+        height: 15px;
+    }
+
+    /* Additional responsive adjustments as needed */
+}
+
+

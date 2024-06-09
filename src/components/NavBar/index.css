@@ -1,0 +1,497 @@
+/* NavBar.css */
+
+@font-face {
+  font-family: 'Tephra';
+  src: url('../../assets/fonts/Tephra50_Trial_Rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Tephra bold';
+  src: url('../../assets/fonts/Tephra0_Trial_Rg.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PPSupply';
+  src: url('../../assets/fonts/PPSupplyMono-Ultralight.otf') format('opentype');
+}
+
+:root {
+  --background-color-light: #d3d0cc;
+  --text-color-light: #363434;
+  --background-color-dark: #1a1818;
+  --text-color-dark: #d3d0cc;
+  --border-bottom-dark: #d3d0cc;
+  --border-bottom-light: #1a1818;
+}
+
+body.light-mode {
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+}
+
+body.dark-mode {
+  background-color: var(--background-color-dark);
+  color: var(--text-color-dark);
+}
+
+body.light-mode .navbar {
+  border-bottom: 1px solid var(--border-bottom-light);
+}
+
+
+
+body.dark-mode .navbar {
+  border-bottom: 1px solid var(--border-bottom-dark);
+}
+
+.navbar {
+  border-bottom: 1px solid  black;
+}
+
+body.light-mode .nav-item {
+  border-left: 1px solid var(--border-bottom-light);
+}
+
+.nav-item {
+  border-left: 1px solid black;
+}
+
+body.dark-mode .nav-item {
+  border-left: 1px solid var(--border-bottom-dark);
+}
+
+.logo.light-mode {
+  color: black; 
+}
+
+.logo.dark-mode {
+  color: white;   
+}
+
+#sun {
+  width: 32px;
+}
+
+#moon {
+  width: 35px;
+}
+
+.body.nav-item.dark-mode {
+  border-bottom: 1px solid white;
+}
+ 
+.body.nav-item.light-mode {
+  border-bottom: 1px solid black;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  z-index: 150;
+  width: 45px;
+  margin-left: 30px;
+  height: 24px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #FA4C14;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.icon {
+  display: none;
+  position: absolute;
+  color: white;
+  font-size: 14px;
+}
+
+input:checked + .slider .light-mode-icon {
+  display: block;
+  top: 0px;
+  left: 4px; 
+}
+
+input:not(:checked) + .slider .dark-mode-icon {
+  display: block;
+  top: 0px;
+  right: 4px; 
+}
+
+.navbar {
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center; 
+  margin-left: 2%;
+  width: 96%;
+  top: 0;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  position: relative;
+  font-size: 40px; 
+  font-family: 'Tephra';
+  text-decoration: none;
+  padding: 0.5rem 0rem; 
+}
+
+.logo-container {
+  margin-left: 1%;
+}
+
+.reg-mark {
+  font-size: 0.3em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+  margin-left: 4px;
+  position: absolute;
+}
+
+.navbar-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end; 
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0.5rem; 
+  font-family: 'PPSupply';
+  height: 65px;
+  font-size: 20px;
+  cursor: pointer;
+}  
+
+.nav-link {
+  text-decoration: none;
+  padding: 0.5rem 2rem;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #FA4C14;
+}
+
+.nav-link.active {
+  color: #FA4C14; 
+}
+
+.title-container {
+  font-family: 'PPSupply';
+  color: grey;
+  font-size: 10px;
+  width: 100%;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  position: fixed;
+  z-index: 201; 
+}
+
+canvas {
+  display: none
+
+}
+
+.navbar-nav {
+  display: flex; 
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item p{
+  display: none;
+}
+
+
+.navbar-nav .nav-item {
+  margin-right: 20px; 
+}
+
+.navbar-nav .nav-item .nav-link {
+  text-decoration: none;
+  display: flex;
+}
+
+.blur-section {
+  filter: blur(0px);
+}
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+  .menu-toggle {
+    position: relative;
+    background-color: transparent;  /* Ensures button background doesn't obscure corners */
+    padding: 10px 10px;  /* Provide sufficient padding */
+    border: none;  /* Remove default border */
+    cursor: pointer;
+    margin-bottom: 10px;
+    overflow: hidden;  /* Hide overflow to keep pseudo-elements within the button */
+    display: inline-block;  /* Align button properly */
+    font-size: 95%;
+
+    font-family: "PPSupply";
+
+}
+
+.menu-toggle.open {
+  color: white;
+}
+
+.inner-border {
+    position: relative;
+    display: block;  /* Makes div block level inside button */
+}
+
+/* Create top-left and bottom-right corners */
+.menu-toggle::before,
+.menu-toggle::after {
+    content: '';
+    position: absolute;
+    border: 1px solid black;
+    width: 10px;  /* Adjust width of the corner cap */
+    height: 10px;  /* Adjust height of the corner cap */
+}
+
+.menu-toggle.open::before,
+.menu-toggle.open::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: white;  /* Change color as needed */
+    width: 10px; 
+    height: 10px;  
+}
+
+/* Top-left corner */
+.menu-toggle::before {
+    border-width: 2px 0 0 2px;  /* Top and left borders */
+    top: 0;
+    left: 0;
+}
+
+/* Bottom-right corner */
+
+/* Bottom-right corner */
+.menu-toggle::after {
+  border-width: 0 2px 2px 0;  /* Right and bottom borders */
+  bottom: 0;
+  right: 0;
+}
+
+/* Create top-right and bottom-left corners using inner-border div */
+.inner-border::before,
+.inner-border::after {
+    content: '';
+    position: absolute;
+    border: 1px solid black;
+    width: 10px;  /* Same width as above */
+    height: 10px;  /* Same height as above */
+}
+
+.inner-border.open::before,
+.inner-border.open::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: white;  /* Ensure this matches the outer corners */
+    width: 10px;  /* Same width as above */
+    height: 10px;  /* Same height as above */
+}
+
+/* Top-right corner */
+.inner-border::before {
+    border-width: 2px 2px 0 0;  /* Top and right borders */
+    top: -10px;
+    right: -10px;
+}
+
+/* Bottom-left corner */
+.inner-border::after {
+    border-width: 0 0 2px 2px;  /* Bottom and left borders */
+    bottom: -10px;
+    left: -10px;
+}
+
+
+  body.dark-mode .menu-toggle {
+    color: white;
+
+  }
+
+  body.dark-mode .inner-border::before,
+  body.dark-mode .inner-border::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: white;  /* Ensure this matches the outer corners */
+    width: 10px;  /* Same width as above */
+    height: 10px;  
+}
+
+body.dark-mode .menu-toggle::before,
+body.dark-mode .menu-toggle::after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: white;  /* Change color as needed */
+    width: 10px;  /* Adjust width of the corner cap */
+    height: 10px;  /* Adjust height of the corner cap */
+}
+
+  .navbar-nav {
+    position: fixed;
+    top: 0;
+    left: -3.7%;
+    right: 10%;
+    width: 105vw;
+    height: 120vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+  }
+
+  .navbar-nav.open {
+    display: flex; 
+    z-index: 200;
+   
+  }
+
+
+  body.dark-mode .navbar-nav.opn ul {
+    border-left: none;
+  }
+
+  .navbar-nav ul {
+    display: none;
+  }
+
+  canvas{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+
+  }
+
+  .navbar-nav.open ul {
+    width: 60%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    border-left: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .nav-item p{
+    display: block;
+    color: white;
+    font-size: 15px;
+  }
+
+  .navbar-nav ul li {
+    width: 100%;
+    height: 10%;
+    margin-bottom: 10%;
+    text-align: left !important;
+    justify-content: space-between;
+    border-top: 0.5px solid white;
+    border-left: none;
+
+  }
+
+  body.dark-mode .navbar-nav ul li {
+    border-left: none;
+  }
+
+  body.light-mode .navbar-nav ul li {
+    border-left: none;
+  }
+
+
+  .nav-link {
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding-left: 0 !important; /* Remove any left padding if existing */
+    text-align: left !important; /* Ensures text alignment to the left */
+  }
+  .nav-link.active{
+    color: white;
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,419 @@
+/* index.css */
+
+@font-face {
+  font-family: 'NeueHaas';
+  src: url('../../../assets/fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Mailsans';
+  src: url('../../../assets/fonts/PSTMailSansTrial-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+}
+
+
+@font-face {
+  font-family: 'PPSupply-bold';
+  src: url('../../../assets/fonts/PPSupplyMono-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'PPSupply';
+  src: url('../../../assets/fonts/PPSupplyMono-Ultralight.otf') format('opentype');
+}
+
+body {
+  background-color: #d8d4d2;
+  overflow-x:hidden ;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  width: 100%;
+}
+  
+  .topContainer { 
+  display: flex;
+  flex-direction: column;
+  column-gap: 5%;
+  width: 100%;
+  padding-left: 5%;
+  padding-bottom: 1%;
+  }
+
+  .middleContainer {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding-top: 15%;
+    justify-content: center;
+    height: 100%;
+  
+  }
+
+  .bottomContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding-bottom: 5%;
+    height: 100%;
+
+  }
+  .timeInfo, .currentLocation {
+    display: flex;
+    flex-direction: column;
+    font-size: 60%;
+    justify-content: center;
+    align-items: flex-start;
+
+  }
+
+  .timeLocationInfo {
+    display: flex;
+    font-family: 'PPSupply';
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    align-items: flex-start;
+  }
+
+  
+  .timeInfo h4 {
+    margin-bottom: 6px;
+  }
+
+  
+  .description {
+    margin-top: 1%;
+    height: 55%;
+    position: relative;
+    width: 20%;
+  }
+  
+
+  body.light-mode #globe {
+    filter: invert(0%);
+  }
+
+  body.dark-mode #globe {
+    filter: invert(100%);
+  }
+
+  body.dark-mode .barcode {
+    filter: invert(100%);
+  }
+
+  body.dark-mode .barcode-text {
+    filter: invert(100%);
+  }
+
+    .year {
+    margin-bottom: -2.5em;
+    font-size: 1.3em;
+    font-family: 'PPSupply';
+    margin-right: 35%;
+  }
+
+   .description p{
+    font-family: 'PPSupply-bold';
+    text-indent: 5em;
+    width: 100%;
+    font-size: 1em;
+  }
+
+  #first {
+    font-family: 'NeueHaas';
+    margin-left: 0%;
+    font-size: 60px;
+    margin-bottom: -50px;
+  }
+
+  #last {
+    font-family: 'NeueHaas';
+    margin-left: 1.4em;
+    font-size: 60px;
+    margin-bottom: -5px;
+  
+  }
+  
+  .title-points li {
+    font-family: 'PPSupply';
+    margin-bottom: 0%;
+    font-size: 15px;
+
+  }
+
+  .nameInfo img {
+    position: absolute;
+    top: 95px;
+    width: 80px;
+    height: 80px;
+
+  }
+
+
+  .currentLocation h4 {
+    margin-bottom: 6px;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .socials p{
+   margin: 5px;
+   color: black;
+   padding-right: 5%;
+  } 
+
+  .barcode img {
+    width: 220px;
+    height: 220px;
+    
+  }
+
+  .socialSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+  }
+
+  .barcode {
+
+    display: flex;
+  
+  }
+
+  
+  .nameInfo {
+    text-align: left;
+    position: relative;
+    font-family: 'Neue-Haas';
+  
+  }
+
+  .nameInfo ul{
+      font-family: 'PPSupply';
+      list-style-type: none;
+    
+  }
+
+  .description {
+    position: relative;
+    padding: 18px;
+
+}
+
+.description::before,
+.description::after {
+    content: '';
+    position: absolute;
+    border-color: black; 
+    border-style: solid;
+}
+
+.description::before {
+    top: 0;
+    left: 0;
+    width: 20px; 
+    height: 20px; 
+    border-width: 2px 0 0 2px; 
+}
+
+.description::after {
+    bottom: 0;
+    right: 0;
+    width: 20px; 
+    height: 20px; 
+    border-width: 0 2px 2px 0; 
+}
+
+.barcode-text {
+  position: absolute;
+  right: 35px;
+  bottom: 45px;
+}
+
+.barcode {
+  position: relative;
+
+}
+
+
+  @media screen and (max-width: 1024px) {
+    .topContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 0px; 
+    }
+  
+    .timeInfo, .currentLocation {
+      display: flex;
+      flex-direction: column;
+      font-size: 60%;
+      justify-content: center;
+      align-items: flex-start;
+
+    }
+
+    .timeLocationInfo {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 96%;
+      margin-left: 2%;
+      align-items: flex-start;
+    }
+
+    
+    .timeInfo h4 {
+      margin-bottom: 6px;
+    }
+
+    .nameInfo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 420px;
+
+    }
+
+    #first {
+      font-family: 'NeueHaas';
+      margin-right: 35%;
+      font-size: 3.5em;
+      margin-bottom: -50px;
+    }
+  
+    #last {
+      font-family: 'NeueHaas';
+      margin-left: 5%;
+      margin-right: 5%;
+      font-size: 3.5em;
+      margin-bottom: -5px;
+    
+    }
+    
+
+
+   .nameInfo ul{
+      width: 100%;
+  
+    }
+  
+    .nameInfo img {
+      position: absolute;
+      top: 90px;
+      left: 0px;
+      right: 0px;
+      width: 80px;
+      height: 80px;
+  
+    }
+  
+
+  
+    .barcode-text {
+      display: none;
+    }
+  
+
+    .bottomContainer {
+      height: 10%;
+      margin: 0;
+      padding: 0;
+      padding-bottom: 215px;
+    }
+
+    .canvasContainer {
+      width: 100%;
+      height: 20vh;
+      left: 0%;
+      top: 50%;
+      display: flex;
+      position: absolute;
+    }
+
+      
+  .description {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 5em;
+    margin-left: 3%;
+    margin-top: 8%;
+    width: 55%;
+    position: relative;
+  }
+
+  .description p{
+    font-family: 'PPSupply-bold';
+    color: black;
+    text-indent: 5em;
+    width: 95%;
+    text-align: left;
+    font-size: 0.7em;
+  }
+
+  .barcode img {
+    width: 100px;
+    height: 100px;
+    display: none;
+    
+  }
+
+  .socialSection {
+    display: flex;
+    margin-top: 18%;
+    flex-direction: row;
+    column-gap: 5em;
+    justify-content: right;
+    align-items: center;
+    width: 50%;
+  }
+
+  .socials p{
+    margin: 10px;
+    color: black;
+    padding-right: 5%;
+    font-size: 12px;
+   } 
+
+   .middleContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 95%;
+    overflow: hidden;
+    margin-top: 5%;
+    height: 40%;
+  
+  }
+
+}
+
+
+
+
+ 

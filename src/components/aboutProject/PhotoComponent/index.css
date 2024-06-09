@@ -1,0 +1,35 @@
+.image-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 20px; /* 50px gap between grid items */
+    padding: 3%;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* First and second images in each set of four */
+.grid-item:nth-child(4n+1), .grid-item:nth-child(4n+2) {
+    grid-column: span 1; /* Each occupies one column */  
+}
+
+/* Third and fourth images in each set of four */
+.grid-item:nth-child(4n+3), .grid-item:nth-child(4n+4) {
+    grid-column: 1 / 3; /* Each spans both columns */
+}
+
+
+
+
+
+
+
+  
+  
+
+   

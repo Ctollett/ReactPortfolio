@@ -1,0 +1,42 @@
+
+
+.get-in-touch-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+  }
+  
+  .get-in-touch-container {
+    white-space: nowrap;
+    animation: slide 10s linear infinite;
+  }
+  
+  .get-in-touch-text {
+    font-family: 'PPSupply-light';
+    font-size: 6rem; /* Adjust size as needed */
+    margin-right: 40px;
+    font-weight: bold;
+    color: #333; /* Adjust text color as needed */
+  }
+  
+  @keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 768px) {
+    .get-in-touch-text {
+      font-size: 3rem; /* Smaller font size for mobile */
+      margin-right: 20px; /* Smaller margin for mobile */
+    }
+  
+    /* Adjust the animation speed if needed */
+    .get-in-touch-container {
+      animation: slide 20s linear infinite;
+    }
+  
+    /* If the text is still too large, you can reduce the number of repetitions */
+  }
+  

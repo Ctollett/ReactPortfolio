@@ -1,0 +1,77 @@
+
+@font-face {
+    font-family: 'PPSupply-light';
+    src: url('../../../assets/fonts/PPSupplySans-Regular.otf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'NeueHaas';
+    src: url('../../../assets/fonts/NeueHaasGrotText-75Bold-Trial.otf') format('opentype');
+  }
+
+
+
+
+  
+
+  .scroll-container {
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   margin-left: 5em;
+   flex-direction: column; 
+   align-items: center; 
+   justify-content: center; 
+   padding: 20px 0; 
+}
+
+.scroll-items {
+   width: 80%; 
+   margin: auto; 
+}   
+
+.scroll-content {
+   display: flex;
+   flex-direction: row;
+   gap: 20px; 
+   width: 100%; 
+}
+
+
+section {
+   padding: 20px;
+}
+
+section h3 {
+   font-size: 24px;
+   margin-bottom: 10px; 
+   color: #333; 
+   font-family: 'NeueHaas', sans-serif; /* Font family as defined */
+}
+
+section ul {
+   list-style-type: none; /* Removes bullet points */
+   padding: 0; /* Removes padding */
+}
+  
+section li {
+   font-size: 16px;
+   color: #666;
+   margin-bottom: 8px; 
+   font-family: 'PPSupply-light', sans-serif; 
+}
+
+.scroll-title {
+   text-align: center; 
+   font-size: 90px;
+   margin-left: 12em;
+   color: grey;
+   font-family: 'NeueHaas', sans-serif; 
+   padding: 20px 0; 
+}
+
+
+  
+
+                            

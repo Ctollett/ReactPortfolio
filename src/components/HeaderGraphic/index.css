@@ -1,0 +1,12 @@
+.particle-wave-container {
+    width: 100%;
+    height: 100%; 
+    margin-bottom: 50em;
+}
+
+@media (max-width: 768px) {
+    .particle-wave-container {
+        height: 100vh;
+        margin-bottom: 10em;
+    }
+}

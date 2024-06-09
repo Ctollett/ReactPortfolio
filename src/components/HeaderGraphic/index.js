@@ -17,7 +17,7 @@ const ParticleWave = () => {
         const raycaster = new THREE.Raycaster();
         const mouse = new THREE.Vector2();
         const highlightColor = new THREE.Color(0xFA4C14); // Softened highlight color
-        const normalColor = new THREE.Color(0x333333);
+        const normalColor = new THREE.Color(0x333333); // Base color
         const geometry = new THREE.SphereGeometry(0.5, 16, 16);
         const particles = new THREE.Group();
         scene.add(particles);

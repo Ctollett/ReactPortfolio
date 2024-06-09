@@ -18,7 +18,7 @@ const useScrollFixedReveal = ({ containerRef, languageRef }) => {
                         id: 'containerTrigger',
                         trigger: containerRef.current,
                         start: "top top",
-                        end: `+=5000px`,
+                        end: `+=${window.innerHeight * 4}`,
                         pin: true,
                  
                         scrub: true,

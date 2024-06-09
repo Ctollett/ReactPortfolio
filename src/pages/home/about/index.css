@@ -103,7 +103,17 @@
 
 }
 
+@media (max-width: 768px) {
+    .card {
+        width: 100%; /* Adjust width for smaller screens */
+        height: auto; /* Adjust height to fit content */
+        overflow: visible; /* Ensure content is not clipped */
+    }
 
+    .card-container {
+        flex-direction: column; /* Stack cards vertically on smaller screens */
+    }
+}
 
 
 
